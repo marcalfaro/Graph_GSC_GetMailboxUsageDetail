@@ -45,6 +45,11 @@ Module Module1
         If resp.IsSuccessStatusCode Then
             strReport = resp.Content.ReadAsStringAsync().Result
             Console.WriteLine(strReport)  'this returns CSV data
+            
+            'Notes: 
+            ' 1. To get the GB used, my formula is:  = [Storage Used (Byte)] / ( 1024 * 1024 * 1024)
+            ' 2. To get the Usage %, my formula is:  = ( [Storage Used (Byte)] / [Prohibit Send/Receive Quota (Byte)] ) * 100
+            
         Else
             Console.WriteLine(resp.ReasonPhrase)
         End If
